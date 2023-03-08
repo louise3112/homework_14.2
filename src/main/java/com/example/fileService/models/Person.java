@@ -1,5 +1,7 @@
 package com.example.fileService.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Person {
     private String name;
 
     @OneToMany (mappedBy = "person")
+    @JsonIgnoreProperties({"person"})
     private List<Folder> folders;
 
     public Person() {}

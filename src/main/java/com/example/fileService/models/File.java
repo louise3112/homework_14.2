@@ -1,6 +1,6 @@
 package com.example.fileService.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -24,7 +24,7 @@ public class File {
 
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnoreProperties({"files"})
     private Folder folder;
 
     public File() {}
